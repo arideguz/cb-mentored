@@ -1,7 +1,10 @@
+
 body {
     background: #EBEBEB;
     text-align: center;
-
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', san-serif;
 }
 
 h1 {
@@ -10,12 +13,14 @@ h1 {
 }
 
 h3 {
-    font-size: 2em;
+    font-size: 2.5em;
+    color: #3A1832;
+    margin-bottom: 0.5%;
 }
 
 #home-image {
     display: inline;
-    border-radius: 5%;
+    border-radius: 15%;
     width: 30%;
     height: 10%;
 }
@@ -27,10 +32,13 @@ h3 {
   font-size: 1.8em;
   background-color: #F8C0C8;
   padding: 0.5%;
+  margin: 0;
+  text-decoration: none;
 }
 
 #nav a{
     color: #6B2D5C;
+    text-decoration: none;
 }
 
 #nav a:hover{
@@ -38,7 +46,16 @@ h3 {
 }
 
 .dish {
-    font-size: 1.5em;
+    font-size: 3em;
+}
+
+.desc {
+    font-size: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20%;
+    padding-right: 20%;
+    list-style: disc;
 }
 
 .food {
@@ -53,4 +70,14 @@ h3 {
     display: inline;
     width: 20%;
     align-items: center;
+}
+
+#steps {
+    list-style: decimal;
+    font-size: 2em;
+}
+
+#contact {
+    list-style: none;
+    font-size: 2em;
 }
