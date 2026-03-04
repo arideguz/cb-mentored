@@ -1,0 +1,35 @@
+#board {
+    display: inline-grid;
+    grid-template-columns: repeat(10, 65px);
+    grid-template-rows: repeat(10, 65px);
+    margin: 5%;
+    border: 2px solid black;
+    justify-content: center;
+}
+ 
+/* .piece {
+    border: thin solid black;
+} */
+
+.buttons {
+    display: inline-flex;
+    justify-content: right;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#erase {
+    font-size: 20px;
+}
+
+#black-pen {
+    font-size: 20px;
+}
+
+#secret {
+    font-size: 20px;
+}
+
+#clear {
+    font-size: 20px;
+}
