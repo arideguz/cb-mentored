@@ -46,35 +46,34 @@ function drawState() {
         pieces.forEach((piece) => {piece.style.background = "pink"});
     }
     else if (currentMode == "secretMode") {
-        
+        randomPen();
     }
     console.log(currentMode);
 }
 
 function fillBlack() {
     const pieces = document.querySelectorAll(".piece");
-    pieces.forEach((piece) => {piece.removeEventListener("mouseover", black)})
-    pieces.forEach((piece) => {piece.addEventListener("mouseover", black)});
+    pieces.forEach((piece) => {piece.removeEventListener("mouseover", () => piece.style.background = "black")});
+    pieces.forEach((piece) => {piece.addEventListener("mouseover", () => piece.style.background = "black")});
 }
 
-function black() {
-    this.style.background = "black";
-}
-
-function erasePen() {
-    this.style.background = "pink";
-}
 function undo() {
     const pieces = document.querySelectorAll(".piece");
-    pieces.forEach((piece) => {piece.removeEventListener("mouseover", erasePen)})
-    pieces.forEach((piece) => {piece.addEventListener("mouseover", erasePen)});
+    pieces.forEach((piece) => {piece.removeEventListener("mouseover", () => piece.style.background = "pink")});
+    pieces.forEach((piece) => {piece.addEventListener("mouseover", () => piece.style.background = "pink")});
 }
 
-function fillBlack() {
+function randomPen() {
     const pieces = document.querySelectorAll(".piece");
-    pieces.forEach((piece) => {piece.removeEventListener("mouseover", black)})
-    pieces.forEach((piece) => {piece.addEventListener("mouseover", black)});
+    pieces.forEach((piece) => {piece.removeEventListener("mouseover", () => piece.style.background = randomColor())});
+    pieces.forEach((piece) => {piece.addEventListener("mouseover", () => piece.style.background = randomColor())});
+}
+
+function randomColor() {
+    var colors = ["#fbf8cc","#fde4cf","#ffcfd2","#f1c0e8","#cfbaf0","#a3c4f3","#90dbf4","#8eecf5","#98f5e1","#b9fbc0"]
+    var color = colors[Math.floor(Math.random() * colors.length)];
+    console.log(color);
+    return color;
 }
 
 drawState()
-// wrap subfunctions into decision making func -> which sub to call
