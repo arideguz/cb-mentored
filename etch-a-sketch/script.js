@@ -1,4 +1,4 @@
-const size = 10;
+let size = 10;
 const totalSize = 650;
 const board = document.getElementById("board");
 board.style.width = totalSize;
@@ -7,7 +7,30 @@ const erase = document.querySelector("#erase");
 const blackPen = document.querySelector("#black-pen");
 const secret = document.querySelector("#secret");
 const clear = document.querySelector("#clear");
+const submit = document.querySelector("#enter");
+const sizeInput = document.getElementById("grid-size");
+board.style.gridTemplateColumns = "repeat(" + size + ", " + 65 + "px)";
+board.style.gridTemplateRows = "repeat(" + size + ", " + 65 + "px)";
 
+function changeSize() {
+    size = sizeInput.value;
+    console.log(size);
+    let px = Math.floor(totalSize / size);
+    const board = document.getElementById("board");
+    board.style.gridTemplateColumns = "repeat(" + size + ", " + px + "px)";
+    board.style.gridTemplateRows = "repeat(" + size + ", " + px + "px)";
+    for (let i = 0; i < size * size; i++) {
+        const piece = document.createElement("div");
+        piece.classList.add("piece");
+        piece.style.border = "thin solid #000000";
+        piece.style.borderWidth = "1px";
+        piece.style.height = totalSize / size;
+        piece.style.width = totalSize / size;
+        board.appendChild(piece);
+    }
+}
+
+submit.onclick = () => changeSize();
 
 for (let i = 0; i < size * size; i++) {
     const piece = document.createElement("div");
@@ -19,9 +42,8 @@ for (let i = 0; i < size * size; i++) {
     board.appendChild(piece);
 }
 
-// variable ting
 
-const defaultMode = "classic";
+const defaultMode = "eraseMode";
 let currentMode = defaultMode;
 
 function setMode(newMode) {
@@ -72,8 +94,8 @@ function randomPen() {
 function randomColor() {
     var colors = ["#fbf8cc","#fde4cf","#ffcfd2","#f1c0e8","#cfbaf0","#a3c4f3","#90dbf4","#8eecf5","#98f5e1","#b9fbc0"]
     var color = colors[Math.floor(Math.random() * colors.length)];
-    console.log(color);
     return color;
 }
 
 drawState()
+
